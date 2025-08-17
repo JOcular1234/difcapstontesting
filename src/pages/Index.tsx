@@ -92,7 +92,7 @@ const Index = () => {
       if (selectedFiles.length > 0) {
         formData.append("media", selectedFiles[0]);
       }
-      const res = await fetch(`${apiUrl}/api/posts`, {
+      const res = await fetch(`${apiUrl}/posts`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -16,10 +16,10 @@ export default function Search() {
     if (!query.trim()) return;
     setLoading(true);
     try {
-      const usersRes = await fetch(`${apiUrl}/api/search/users?q=${encodeURIComponent(query)}`);
+      const usersRes = await fetch(`${apiUrl}/search/users?q=${encodeURIComponent(query)}`);
       const users = usersRes.ok ? await usersRes.json() : [];
       setUserResults(users);
-      const postsRes = await fetch(`${apiUrl}/api/search/hashtags?q=${encodeURIComponent(query)}`);
+      const postsRes = await fetch(`${apiUrl}/search/hashtags?q=${encodeURIComponent(query)}`);
       const posts = postsRes.ok ? await postsRes.json() : [];
       setPostResults(posts);
     } finally {

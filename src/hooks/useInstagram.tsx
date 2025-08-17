@@ -142,7 +142,7 @@ export const useInstagram = () => {
       console.log('API URL:', apiUrl);
       console.log('Token exists:', !!token);
       
-      const res = await fetch(`${apiUrl}/api/posts/feed`, {
+      const res = await fetch(`${apiUrl}/posts/feed`, {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -199,7 +199,7 @@ export const useInstagram = () => {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${apiUrl}/api/interactions/like`, {
+      const response = await fetch(`${apiUrl}/interactions/like`, {
         method: isCurrentlyLiked ? "DELETE" : "POST",
         headers: {
           "Content-Type": "application/json",
@@ -289,7 +289,7 @@ export const useInstagram = () => {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
-      const res = await fetch(`${apiUrl}/api/interactions/comment`, {
+      const res = await fetch(`${apiUrl}/interactions/comment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

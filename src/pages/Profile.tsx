@@ -44,7 +44,7 @@ export default function Profile() {
       const apiUrl = import.meta.env.VITE_API_URL;
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch(`${apiUrl}/api/interactions/followers/${profileUser._id}/is-following`, {
+        const res = await fetch(`${apiUrl}/interactions/followers/${profileUser._id}/is-following`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {
@@ -111,7 +111,7 @@ export default function Profile() {
     if (!userId) return;
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
-      const res = await fetch(`${apiUrl}/api/interactions/followers/${userId}`);
+      const res = await fetch(`${apiUrl}/interactions/followers/${userId}`);
       if (res.ok) {
         const data = await res.json();
         setFollowersCount(data.followersCount || 0);
@@ -126,7 +126,7 @@ export default function Profile() {
     if (!userId) return;
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
-      const res = await fetch(`${apiUrl}/api/interactions/followers/following/${userId}`);
+      const res = await fetch(`${apiUrl}/interactions/followers/following/${userId}`);
       if (res.ok) {
         const data = await res.json();
         setFollowingCount(data.followingCount || 0);
@@ -150,7 +150,7 @@ const fetchUserPosts = async () => {
   if (!user || !user._id) return;
   try {
     const apiUrl = import.meta.env.VITE_API_URL;
-    const res = await fetch(`${apiUrl}/api/posts/user/${user._id}`);
+    const res = await fetch(`${apiUrl}/posts/user/${user._id}`);
     if (res.ok) {
       const data = await res.json();
       // Transform posts to match Post interface
@@ -203,7 +203,7 @@ useEffect(() => {
     try {
       let res;
       if (isFollowing) {
-        res = await fetch(`${apiUrl}/api/interactions/follow`, {
+        res = await fetch(`${apiUrl}/interactions/follow`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -212,7 +212,7 @@ useEffect(() => {
           body: JSON.stringify({ followedId: user._id }),
         });
       } else {
-        res = await fetch(`${apiUrl}/api/interactions/follow`, {
+        res = await fetch(`${apiUrl}/interactions/follow`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
