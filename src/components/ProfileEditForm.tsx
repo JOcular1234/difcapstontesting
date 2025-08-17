@@ -235,7 +235,7 @@ export default function ProfileEditForm({ onSuccess }: { onSuccess?: () => void 
       formData.append("profilePicture", form.profileImageFile);
     }
     try {
-      const res = await fetch(`${apiUrl}/api/auth/profile`, {
+      const res = await fetch(`${apiUrl}/auth/profile`, {
         method: "PUT",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

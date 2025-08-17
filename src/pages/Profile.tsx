@@ -69,9 +69,9 @@ export default function Profile() {
         const apiUrl = import.meta.env.VITE_API_URL;
         let res;
         if (username) {
-          res = await fetch(`${apiUrl}/api/auth/profile/${username}`);
+          res = await fetch(`${apiUrl}/auth/profile/${username}`);
         } else {
-          res = await fetch(`${apiUrl}/api/auth/profile`, {
+          res = await fetch(`${apiUrl}/auth/profile`, {
             headers: { Authorization: `Bearer ${token}` },
           });
         }

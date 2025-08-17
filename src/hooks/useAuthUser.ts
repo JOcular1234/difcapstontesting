@@ -17,7 +17,7 @@ export function useAuthUser() {
     const token = localStorage.getItem('token');
     if (!token) return;
     const apiUrl = import.meta.env.VITE_API_URL;
-    fetch(`${apiUrl}/api/auth/profile`, {
+    fetch(`${apiUrl}/auth/profile`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.ok ? res.json() : null)
